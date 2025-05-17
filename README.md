@@ -55,7 +55,7 @@ This project is an end-to-end data analysis solution designed to extract critica
      - Revenue trends across branches and categories.
  ###sql
 -- Q1: Find different payment methods, number of transactions, and quantity sold by payment method
- ```
+ ```sql
    SELECT 
    	payment_method,
    	COUNT(*) AS no_transcations,
@@ -65,7 +65,7 @@ This project is an end-to-end data analysis solution designed to extract critica
  ```
 
 --  Q2: Identify the highest-rated category in each branch Display the branch, category, and avg rating
-```
+```sql
    SELECT branch,category,avg_rating 
    FROM
    (
@@ -80,7 +80,7 @@ This project is an end-to-end data analysis solution designed to extract critica
    WHERE c_rank = 1 ;
 ```
 -- Q3: Identify the busiest day for each branch based on the number of transactions
-```
+```sql
 SELECT * FROM
 (
 	SELECT 
@@ -95,7 +95,7 @@ SELECT * FROM
 WHERE h_rank =1;
 ```
 -- Q4: Calculate the total quantity of items sold per payment method
-```
+```sql
    SELECT 
    	payment_method,
    	SUM(quantity) AS total_quantity
@@ -114,7 +114,7 @@ WHERE h_rank =1;
    GROUP BY city,category;
 ```
 -- Q6: Calculate the total profit for each category
-```
+```sql
    SELECT  
    category,
    SUM(total) AS total_revenue,
@@ -125,7 +125,7 @@ WHERE h_rank =1;
 ```
 -- Q7: Determine the most common payment method for each branch
  
- ```
+ ```sql
     WITH cte
     AS
     (
@@ -154,7 +154,7 @@ WHERE h_rank =1;
    ORDER BY branch, count(*) DESC; 
 ```
 -- Q9: Identify the 5 branches with the highest revenue decrease ratio from last year to current year (e.g., 2022 to 2023)
-```
+```sql
    SELECT *,
    YEAR(STR_TO_DATE(date,'%d/%m/%Y')) AS formatted_date
    FROM walmart;
